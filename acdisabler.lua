@@ -1,36 +1,56 @@
 --Void's anticheat disabler
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Void's AC Disabler", HidePremium = false})
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+if shared.LoadPrivate then shared.VapePrivate, shared.SECRETKEY = true, "VAPEPRIVATE_PJK78TSG1HQUGRKVIMPA" end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+repeat task.wait() until shared.GuiLibrary
+local GuiLibrary = shared.GuiLibrary
+local COB = function(tab, argstable) 
+    return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"].CreateOptionsButton(argstable)
+end
+
+COB("Blatent", {
+    Name = "Godmode semi AC Disabler",
+    Function = function(callback) 
+        if callback then
+            pcall(function() 
+                game.Players.LocalPlayer.Character.HumanoidRootPart:Destroy()
+            end) 
+        end
+    end,
+    HoverText = "Godmode also disables ac some, use iy fly"
 })
-Tab:AddParagraph("Info","Void's ac disabler is not fully complete yet. Expect updates.")
-OrionLib:MakeNotification({
-	Name = "Script loaded!",
-	Content = "Void's AC Disabler",
-	Image = "rbxassetid://4483345998",
-	Time = 5
+
+COB("Blatent", {
+    Name = "AnticheatDisabler",
+    Function = function(callback) 
+        if callback then
+            pcall(function() 
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/Cesare0328/my-scripts/main/joke%20anticheat.lua')()
+            end) 
+        end
+    end,
+    HoverText = "Disables anticheat use iy fly"
 })
-Tab:AddButton({
-	Name = "Godmode (disables ac also, use iy fly)",
-	Callback = function()
-      		print("button pressed-godmode")
-      		game.Players.LocalPlayer.Character.HumanoidRootPart:Destroy()
-  	end    
+
+COB("Blatent", {
+    Name = "Infinite yeild",
+    Function = function(callback) 
+        if callback then
+            pcall(function() 
+                 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+            end) 
+        end
+    end,
+    HoverText = "infinite yeild use for flying"
 })
-Tab:AddButton({
-	Name = "AC Disabler (use infinite yeild fly)",
-	Callback = function()
-      		print("button pressed-ac disabler")
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/Cesare0328/my-scripts/main/joke%20anticheat.lua')()
-  	end    
-})
-Tab:AddButton({
-	Name = "Infinite Yeild (use for fly)",
-	Callback = function()
-      		print("button pressed-iy")
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-  	end    
+
+COB("Blatent", {
+    Name = "PingBypass",
+    Function = function(callback) 
+        if callback then
+            pcall(function() 
+                shared.SetPing(game.Players.LocalPlayer, 0) 
+            end) 
+        end
+    end,
+    HoverText = "sets ping to 0 using network functions"
 })
